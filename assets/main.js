@@ -5,16 +5,20 @@ console.log(emailUtente);
 //controlla che sia nella lista di chi può accedere
 var listaMail = ["fabio@gmail.com" , "federica@alice.it" , "claudia@libero.it"];
 console.log(listaMail);
- for (var i = 0; i < 3; i++){
+var control = false;
+
+ for (var i = 0; i < listaMail.length ; i++){
     if (listaMail[i] == emailUtente){
-        console.log(listaMail[i]);  
-      document.getElementById('msg_ok').innerHTML = "Accesso consentito";
+        console.log('utente trovato');  
+        control = true;
   }
-  else if (listaMail[i] != emailUtente){
-          
-          document.getElementById ('msg_no').innerHTML ="mail non valida, accesso negato";
-              
-      }
+  
+}
+//stampa un messaggio appropriato sull’esito del controllo.
+if (control == true){
+    document.getElementById('msg_ok').innerHTML = "Mail corretta, Accesso autorizzato";
+}
+else if(control == false ) {
+    document.getElementById('msg_ok').innerHTML = "Mail errata, Accesso negato";
 }
 
-//stampa un messaggio appropriato sull’esito del controllo.
